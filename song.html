@@ -13,25 +13,48 @@
     </div>  
  
     <div id="Content">
-        <div id="AlbumContainer">
-            <div id="Album">
-                <a href="images/LoatheCoverArt.jpg" class="Cover Active" title="Album Cover Art">
-                    <img src="images/LoatheCoverArt.jpg" alt="Album Cover Art">
-                </a>
-            </div>  
-            <div id="ArtistInfo">
-                <h3>Artist:</h3><br>
-                <p>Loathe</p><br>
-                <h3>Album:</h3><br>
-                <p>I let It In And It Took Everything</p>
-            </div>
-        </div>     
-        <br> <!-- Could add margin instead of <br> tags here --> 
-        <p> Youtube link <a class="link" href="https://www.youtube.com/watch?v=eRrain4zwHs&list=OLAK5uy_md1Kz8QCgBsoyAvjwHph-ndFUOUhN_FDE&ab_channel=Loathe-Topic">HERE</a></p>
+        <h2>Add a Song</h2>
+        <form>
+            <label for="artist"> Artist: </label>
+            <input id="artist" type="text">
+            <span class="error-msg"></span>
+            <br>
+
+            <label for="song"> Song: </label>
+            <input id="song" type="text">
+            <span class="error-msg"></span>
+            <br>
+            
+            <label for="album"> Album: </label>
+            <input id="album" type="text">
+            <span class="error-msg"></span>
+            <br>
+
+            <label for="length"> Length: </label>
+            <input id="length" type="number">
+            <span class="error-msg"></span>
+            <br>
+
+            <label for="releaseDate"> Release Date: </label>
+            <input id="releaseDate" type="date">
+            <span class="error-msg"></span>
+            <br>
+
+            <button type="button">Submit</button>
+        </form>
         <br>
-        <p> or </p>
-        <br>
-        <p>Click <a class="link" href="/song.html">HERE</a> to submit your favorite song</p>
+
+
+
+
+
+
+
+
+
+
+
+        <p>Click <a class="link" href="/index.html">HERE</a> to go back</p>
     </div>
 
     <footer>

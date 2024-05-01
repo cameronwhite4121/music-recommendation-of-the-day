@@ -2,11 +2,26 @@
  * Represents a single song
  */
 class Song {
+    /**
+     * What is the song called
+     */
     name: string;
-    album: string;
+    /**
+     * Album song is on
+     */
+    album: string; 
+    /**
+     * For now, number of seconds
+     */
     length: number;
+    /**
+     * Who released the song?
+     */
     artist: string;
-    releaseDate: Date;
+    /**
+     * yyyy/mm/dd
+     */
+    releaseDate: Date; 
 }
 
 // Song object test code
