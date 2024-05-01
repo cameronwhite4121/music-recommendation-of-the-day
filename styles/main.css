@@ -75,6 +75,9 @@ a.active{
 #YoutubeLink:hover{
     color: green;
 }
+.link {
+    color: black;
+}
 
 footer{
     background-color: black;
