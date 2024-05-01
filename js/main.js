@@ -34,8 +34,10 @@ function getSong() {
     let album = albumTextBox.value;
     let length = parseFloat(lengthTextBox.value);
     let releaseDate = new Date(releaseDateTextBox.value);
-    return is;
-    isValidData;
+    if (isValidData) {
+        let newSong = new Song();
+        return newSong;
+    }
 }
 function addSong(b) {
 }

@@ -80,7 +80,10 @@ function getSong():Song {
 
     let releaseDate:Date = new Date(releaseDateTextBox.value);
 
-    return is isValidData
+    if (isValidData) {
+        let newSong = new Song();
+        return newSong;
+    }
 }
 
 /**
