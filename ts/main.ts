@@ -56,7 +56,31 @@ function processSong() {
  * @returns 
  */
 function getSong():Song {
-    return null;
+    // get all inputs
+    let artistTextBox = document.querySelector("#artist") as HTMLInputElement; // Casting here helps with intellisense
+    let songTextBox = document.querySelector("#song") as HTMLInputElement;
+    let albumTextBox = document.querySelector("#album") as HTMLInputElement;
+    let lengthTextBox = document.querySelector("#length") as HTMLInputElement;
+    let releaseDateTextBox = document.querySelector("#releaseDate") as HTMLInputElement;
+
+    // Validate data
+    let isValidData:boolean = true;
+
+    let artist:string = artistTextBox.value;
+
+    let song:string = songTextBox.value;
+    if(song.trim() == "") {
+        isValidData = false;
+        songTextBox.nextElementSibling.textContent = "Must input a song name";
+    }
+
+    let album:string = albumTextBox.value;
+
+    let length:number = parseFloat(lengthTextBox.value);
+
+    let releaseDate:Date = new Date(releaseDateTextBox.value);
+
+    return is isValidData
 }
 
 /**
@@ -67,3 +91,4 @@ function getSong():Song {
 function addSong(b:Song):void {
     
 }
+

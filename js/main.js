@@ -19,7 +19,23 @@ function processSong() {
     }
 }
 function getSong() {
-    return null;
+    let artistTextBox = document.querySelector("#artist");
+    let songTextBox = document.querySelector("#song");
+    let albumTextBox = document.querySelector("#album");
+    let lengthTextBox = document.querySelector("#length");
+    let releaseDateTextBox = document.querySelector("#releaseDate");
+    let isValidData = true;
+    let artist = artistTextBox.value;
+    let song = songTextBox.value;
+    if (song.trim() == "") {
+        isValidData = false;
+        songTextBox.nextElementSibling.textContent = "Must input a song name";
+    }
+    let album = albumTextBox.value;
+    let length = parseFloat(lengthTextBox.value);
+    let releaseDate = new Date(releaseDateTextBox.value);
+    return is;
+    isValidData;
 }
 function addSong(b) {
 }
