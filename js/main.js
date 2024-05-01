@@ -26,13 +26,30 @@ function getSong() {
     let releaseDateTextBox = document.querySelector("#releaseDate");
     let isValidData = true;
     let artist = artistTextBox.value;
+    if (artist.trim() == "") {
+        console.log("Artist is false");
+        isValidData = false;
+        artistTextBox.nextElementSibling.textContent = "Must input an artist's name";
+    }
     let song = songTextBox.value;
     if (song.trim() == "") {
+        console.log("Song is false");
         isValidData = false;
         songTextBox.nextElementSibling.textContent = "Must input a song name";
     }
+    console.log("Code continues from song");
     let album = albumTextBox.value;
+    if (album.trim() == "") {
+        console.log("Album is false");
+        isValidData = false;
+        albumTextBox.nextElementSibling.textContent = "Must input an album name";
+    }
     let length = parseFloat(lengthTextBox.value);
+    if (length <= 0 || isNaN(length) || length > 600) {
+        console.log("Length is false");
+        isValidData = false;
+        lengthTextBox.nextElementSibling.textContent = "Length must be a realistic number";
+    }
     let releaseDate = new Date(releaseDateTextBox.value);
     if (isValidData) {
         let newSong = new Song();

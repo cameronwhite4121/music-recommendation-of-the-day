@@ -28,7 +28,7 @@ class Song {
 let mySong = new Song();
 mySong.name = "Aggressive Evolution";
 mySong.album = "I let it in and it took everything";
-mySong.length = 207;
+mySong.length = 207; // Length in seconds
 mySong.artist = "Loathe";
 mySong.releaseDate = new Date(2020, 1, 7);
 
@@ -63,20 +63,41 @@ function getSong():Song {
     let lengthTextBox = document.querySelector("#length") as HTMLInputElement;
     let releaseDateTextBox = document.querySelector("#releaseDate") as HTMLInputElement;
 
-    // Validate data
+    // Validate data  
     let isValidData:boolean = true;
 
+    // Validate artist name
     let artist:string = artistTextBox.value;
+    if(artist.trim() == "") {
+        console.log("Artist is false");
+        isValidData = false;
+        artistTextBox.nextElementSibling.textContent = "Must input an artist's name";
+    }
 
+    // Validate song name
     let song:string = songTextBox.value;
     if(song.trim() == "") {
+        console.log("Song is false");
         isValidData = false;
         songTextBox.nextElementSibling.textContent = "Must input a song name";
     }
+    console.log("Code continues from song");
 
+    // Validate album name
     let album:string = albumTextBox.value;
+    if(album.trim() == "") {
+        console.log("Album is false");
+        isValidData = false;
+        albumTextBox.nextElementSibling.textContent = "Must input an album name";
+    }
 
+    // Validate song length
     let length:number = parseFloat(lengthTextBox.value);
+    if(length <= 0 || isNaN(length) || length > 600) {
+        console.log("Length is false");
+        isValidData = false;
+        lengthTextBox.nextElementSibling.textContent = "Length must be a realistic number";
+    }
 
     let releaseDate:Date = new Date(releaseDateTextBox.value);
 
