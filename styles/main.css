@@ -26,7 +26,7 @@ h1{
 }
 
 /*
-* Content Styles
+* Content Container Styles
 */
 #Content{
     width: 100%;
@@ -42,7 +42,7 @@ h1{
 }
 
 /*
-* Album Cover Styles
+* Content Styles
 */
 #AlbumContainer{
     width: 640px;
@@ -61,7 +61,7 @@ h1{
     margin-right: 2em;
     margin-top: 2em;
 }
-#ArtistInfo h3, p {
+#ArtistInfo, h3, p, label, h2 {
     color: rgb(102, 99, 99);
     margin: auto;
     font-size: 130%;
@@ -78,8 +78,16 @@ a.active{
 .link {
     color: black;
 }
+.error-msg {
+    color: aliceblue;
+}
+#songForm {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
 
 footer{
     background-color: black;
 }
+
 
