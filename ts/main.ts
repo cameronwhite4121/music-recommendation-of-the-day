@@ -2,10 +2,14 @@
  * Represents a single song
  */
 class Song {
+        /**
+     * Who released the song?
+     */
+    artist: string;
     /**
      * What is the song called
      */
-    name: string;
+    songName: string;
     /**
      * Album song is on
      */
@@ -15,24 +19,21 @@ class Song {
      */
     length: number;
     /**
-     * Who released the song?
-     */
-    artist: string;
-    /**
      * yyyy/mm/dd
      */
     releaseDate: Date; 
 }
 
-// Song object test code
+/* // Song object test code
 let mySong = new Song();
-mySong.name = "Aggressive Evolution";
+mySong.songName = "Aggressive Evolution";
 mySong.album = "I let it in and it took everything";
 mySong.length = 207; // Length in seconds
 mySong.artist = "Loathe";
 mySong.releaseDate = new Date(2020, 1, 7);
 
 console.log(mySong);
+*/
 
 window.onload = function() {
     // Set up button click event for add song form
@@ -40,6 +41,9 @@ window.onload = function() {
     addSongButton.onclick = processSong;
 }
 
+/**
+ * Think of this as main. All main functions are called here and song data is returned.
+ */
 function processSong() {
     console.log("Process Song was called");
 
@@ -77,13 +81,12 @@ function getSong():Song {
     }
 
     // Validate song name
-    let song:string = songTextBox.value;
-    if(song.trim() == "") {
+    let songName:string = songTextBox.value;
+    if(songName.trim() == "") {
         console.log("Song is false");
         isValidData = false;
         songTextBox.nextElementSibling.textContent = "Must input a song name";
     }
-    console.log("Code continues from song");
 
     // Validate album name
     let album:string = albumTextBox.value;
@@ -110,21 +113,33 @@ function getSong():Song {
         releaseDateTextBox.nextElementSibling.textContent = "Must input a date";
     }
 
+    // Creates song if data is valid
     if (isValidData) {
-        let newSong = new Song();
-        return newSong;
+        console.log("Returned song");
+        let userSong = new Song();
+        userSong.artist = artist;
+        userSong.songName = songName;
+        userSong.album = album;
+        userSong.length = length;
+        userSong.releaseDate = new Date(releaseDate);
+        return userSong;
     }
+    return null; // If there is any invalid data
 }
 
 /**
  * Adds a song object to web storage. Assumes
- * all data is valid.
+ * all data is valid. This function DEFINITELY
+ * has a purpose. 
  * @param b The song to be added
  */
 function addSong(b:Song):void {
-    
+    console.log("Song was added to metaphorical storage that's housed in imagination land that's definitely real and not made up, trust me bro.");  
 }
 
+/**
+ * Clears all span messages every time getSong() is called
+ */
 function clearAllErrorMsgs() {
     let allSpans = document.querySelectorAll("form span.error-msg");
     for(let i = 0; i < allSpans.length; i++) {

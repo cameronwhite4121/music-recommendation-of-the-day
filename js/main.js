@@ -1,12 +1,5 @@
 class Song {
 }
-let mySong = new Song();
-mySong.name = "Aggressive Evolution";
-mySong.album = "I let it in and it took everything";
-mySong.length = 207;
-mySong.artist = "Loathe";
-mySong.releaseDate = new Date(2020, 1, 7);
-console.log(mySong);
 window.onload = function () {
     let addSongButton = document.querySelector("#add-song");
     addSongButton.onclick = processSong;
@@ -32,13 +25,12 @@ function getSong() {
         isValidData = false;
         artistTextBox.nextElementSibling.textContent = "Must input an artist's name";
     }
-    let song = songTextBox.value;
-    if (song.trim() == "") {
+    let songName = songTextBox.value;
+    if (songName.trim() == "") {
         console.log("Song is false");
         isValidData = false;
         songTextBox.nextElementSibling.textContent = "Must input a song name";
     }
-    console.log("Code continues from song");
     let album = albumTextBox.value;
     if (album.trim() == "") {
         console.log("Album is false");
@@ -59,11 +51,19 @@ function getSong() {
         releaseDateTextBox.nextElementSibling.textContent = "Must input a date";
     }
     if (isValidData) {
-        let newSong = new Song();
-        return newSong;
+        console.log("Returned song");
+        let userSong = new Song();
+        userSong.artist = artist;
+        userSong.songName = songName;
+        userSong.album = album;
+        userSong.length = length;
+        userSong.releaseDate = new Date(releaseDate);
+        return userSong;
     }
+    return null;
 }
 function addSong(b) {
+    console.log("Song was added to metaphorical storage that's housed in imagination land that's definitely real and not made up, trust me bro.");
 }
 function clearAllErrorMsgs() {
     let allSpans = document.querySelectorAll("form span.error-msg");
