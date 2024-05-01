@@ -9,6 +9,7 @@ function processSong() {
     let userSong = getSong();
     if (userSong != null) {
         addSong(userSong);
+        console.log("Song: " + userSong);
     }
 }
 function getSong() {

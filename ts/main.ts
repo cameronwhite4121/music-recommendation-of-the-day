@@ -50,6 +50,7 @@ function processSong() {
     let userSong = getSong();
     if(userSong != null) {
         addSong(userSong);
+        console.log("Song: " + userSong); // Need to create a toString method buuuuuut I don't have time to do extra stuff rn. Make an issue? nah
     }
 }
 
