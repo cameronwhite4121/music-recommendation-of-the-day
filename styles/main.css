@@ -45,7 +45,7 @@ h1{
 * Content Styles
 */
 #AlbumContainer{
-    width: 640px;
+    width: 700px;
     margin-top: 8em;
     margin-left: auto;
     margin-right: auto;
@@ -56,10 +56,7 @@ h1{
     padding: 1em;
 }
 #ArtistInfo{
-    float: right; 
-    margin-left: 1em;
-    margin-right: 2em;
-    margin-top: 2em;
+    float: left; 
 }
 #ArtistInfo, h3, p, label, h2 {
     color: rgb(102, 99, 99);
@@ -84,6 +81,19 @@ a.active{
 #songForm {
     margin-top: 3%;
     margin-bottom: 3%;
+}
+#songForm{
+    width: 470px;
+    height: 200px;
+    padding: 1em; /**/
+    margin-top: 8em;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    opacity: 0.6;
+    display: block;
+    overflow: hidden;
+
 }
 
 footer{
