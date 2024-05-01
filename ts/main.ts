@@ -33,3 +33,37 @@ mySong.artist = "Loathe";
 mySong.releaseDate = new Date(2020, 1, 7);
 
 console.log(mySong);
+
+window.onload = function() {
+    // Set up button click event for add song form
+    let addSongButton = document.querySelector("#add-song") as HTMLButtonElement;
+    addSongButton.onclick = processSong;
+}
+
+function processSong() {
+    console.log("Process Song was called");
+
+    let userSong = getSong();
+    if(userSong != null) {
+        addSong(userSong);
+    }
+}
+
+/**
+ * Retrieves all song data from html page.
+ * If all data is valid, a song object will
+ * be returned. Null if any data is invalid.
+ * @returns 
+ */
+function getSong():Song {
+    return null;
+}
+
+/**
+ * Adds a song object to web storage. Assumes
+ * all data is valid.
+ * @param b The song to be added
+ */
+function addSong(b:Song):void {
+    
+}
