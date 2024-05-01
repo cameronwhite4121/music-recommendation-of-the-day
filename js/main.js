@@ -50,7 +50,13 @@ function getSong() {
         isValidData = false;
         lengthTextBox.nextElementSibling.textContent = "Length must be a realistic number";
     }
-    let releaseDate = new Date(releaseDateTextBox.value);
+    let releaseDate = releaseDateTextBox.value;
+    let releaseDateCheck = Date.parse(releaseDate);
+    if (isNaN(releaseDateCheck)) {
+        console.log("Date is false");
+        isValidData = false;
+        releaseDateTextBox.nextElementSibling.textContent = "Must input a date";
+    }
     if (isValidData) {
         let newSong = new Song();
         return newSong;
