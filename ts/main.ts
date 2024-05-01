@@ -56,6 +56,8 @@ function processSong() {
  * @returns 
  */
 function getSong():Song {
+    clearAllErrorMsgs();
+
     // get all inputs
     let artistTextBox = document.querySelector("#artist") as HTMLInputElement; // Casting here helps with intellisense
     let songTextBox = document.querySelector("#song") as HTMLInputElement;
@@ -121,5 +123,13 @@ function getSong():Song {
  */
 function addSong(b:Song):void {
     
+}
+
+function clearAllErrorMsgs() {
+    let allSpans = document.querySelectorAll("form span.error-msg");
+    for(let i = 0; i < allSpans.length; i++) {
+        let currentSpan = allSpans[i];
+        currentSpan.textContent = "";
+    }
 }
 

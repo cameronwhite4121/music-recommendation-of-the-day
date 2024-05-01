@@ -19,6 +19,7 @@ function processSong() {
     }
 }
 function getSong() {
+    clearAllErrorMsgs();
     let artistTextBox = document.querySelector("#artist");
     let songTextBox = document.querySelector("#song");
     let albumTextBox = document.querySelector("#album");
@@ -63,4 +64,11 @@ function getSong() {
     }
 }
 function addSong(b) {
+}
+function clearAllErrorMsgs() {
+    let allSpans = document.querySelectorAll("form span.error-msg");
+    for (let i = 0; i < allSpans.length; i++) {
+        let currentSpan = allSpans[i];
+        currentSpan.textContent = "";
+    }
 }
