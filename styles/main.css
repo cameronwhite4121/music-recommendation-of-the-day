@@ -34,7 +34,12 @@ h1{
     overflow: hidden;
     text-align: center;
 }
-#Content.is-loading:after{
+/* 
+Following the jquery book, it recommended this for 
+photo gallerys. Tried doing some of the more advanced stuff but
+didn't understand parts.  
+*/
+#Content.is-loading:after{ 
     content: url(/images/loading.gif);
     position: absolute;
     top: 0;
