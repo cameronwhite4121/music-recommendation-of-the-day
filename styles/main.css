@@ -30,14 +30,15 @@ h1{
 */
 #Content{
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    min-height: 100%;
     text-align: center;
+    padding-bottom: 2.5em;
 }
+
 /* 
-Following the jquery book, it recommended this for 
-photo gallerys. Tried doing some of the more advanced stuff but
-didn't understand parts.  
+* Following the jquery book, it recommended this for 
+* photo gallerys. Tried doing some of the more advanced stuff but
+* didn't understand parts.  
 */
 #Content.is-loading:after{ 
     content: url(/images/loading.gif);
@@ -63,7 +64,7 @@ didn't understand parts.
 #ArtistInfo{
     float: left; 
 }
-#ArtistInfo, h3, p, label, h2 {
+#ArtistInfo, h3, p, label, h2, br {
     color: rgb(102, 99, 99);
     margin: auto;
     font-size: 130%;
@@ -83,17 +84,14 @@ a.active{
 .error-msg {
     color: aliceblue;
 }
-#songForm {
-    margin-top: 3%;
-    margin-bottom: 3%;
-}
 #songForm{
     width: 470px;
     height: 200px;
-    padding: 1em; /**/
-    margin-top: 8em;
+    padding: 1em;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5%;
+    margin-bottom: 3%;
     background-color: black;
     opacity: 0.6;
     display: block;
@@ -101,8 +99,32 @@ a.active{
 
 }
 
-footer{
+/*
+* Song display div
+*/
+#songDiv{
+    width: 470px;
+    height: 200px;
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
     background-color: black;
+    opacity: 0.6;
+    overflow: hidden;
 }
+
+/*
+* Footer styles, duh
+*/
+footer {
+    clear: both;
+    position: relative;
+    bottom: auto;
+    width: 100%;
+    height: 5em; 
+    background-color: black;
+  }
 
 

@@ -63,8 +63,20 @@ function getSong() {
     }
     return null;
 }
-function addSong(b) {
+function addSong(s) {
     console.log("Song was added to metaphorical storage that's housed in imagination land that's definitely real and not made up, trust me bro.");
+    console.log(s);
+    let songDiv = document.createElement("div");
+    songDiv.setAttribute("id", "songDiv");
+    let songHeading = document.createElement("h2");
+    let songParahraph = document.createElement("p");
+    songHeading.innerHTML = s.artist + "<br>" + "<hr>";
+    songParahraph.innerHTML = s.songName + " is featured in the album " + s.album +
+        " by " + s.artist + " and was released in " + s.releaseDate +
+        ". The song is " + s.length + " minute/s in length.";
+    songDiv.appendChild(songHeading);
+    songDiv.appendChild(songParahraph);
+    document.querySelector("#song-display").appendChild(songDiv);
 }
 function clearAllErrorMsgs() {
     let allSpans = document.querySelectorAll("form span.error-msg");

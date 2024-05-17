@@ -24,21 +24,11 @@ class Song {
     releaseDate: Date; 
 }
 
-/* // Song object test code
-let mySong = new Song();
-mySong.songName = "Aggressive Evolution";
-mySong.album = "I let it in and it took everything";
-mySong.length = 207; // Length in seconds
-mySong.artist = "Loathe";
-mySong.releaseDate = new Date(2020, 1, 7);
-
-console.log(mySong);
-*/
-
 window.onload = function() {
     // Set up button click event for add song form
     let addSongButton = document.querySelector("#add-song") as HTMLButtonElement;
     addSongButton.onclick = processSong;
+
 }
 
 /**
@@ -132,11 +122,37 @@ function getSong():Song {
  * Adds a song object to web storage. Assumes
  * all data is valid. This function DEFINITELY
  * has a purpose. 
- * @param b The song to be added
+ * @param s The song to be added
  */
-function addSong(b:Song):void {
-    console.log("Song was added to metaphorical storage that's housed in imagination land that's definitely real and not made up, trust me bro.");  
+function addSong(s:Song):void {
+    console.log("Song was added to metaphorical storage that's housed in imagination land that's definitely real and not made up, trust me bro.");
+    console.log(s);  
+
+    // Constructs song display div structure 
+    let songDiv = document.createElement("div");
+    /**
+     * Very happy with this code. I had a bug that was making 
+     * my cotainer styles visible even without content. My code 
+     * now uses dom manipulation to make a div with an id tag! 
+     * Now the styles are only visible when the div is created. 
+     */
+    songDiv.setAttribute("id", "songDiv"); 
+    let songHeading = document.createElement("h2");
+    let songParahraph = document.createElement("p");
+
+    // Adds Artist name to h2 element
+    songHeading.innerHTML = s.artist  + "<br>" + "<hr>"; 
+    // Adds song paragraph to p element
+    songParahraph.innerHTML = s.songName + " is featured in the album " + s.album + 
+                                " by " + s.artist + " and was released in " + s.releaseDate + 
+                                ". The song is " + s.length + " minute/s in length.";
+    songDiv.appendChild(songHeading);
+    songDiv.appendChild(songParahraph);
+
+    // Display song div to webpage
+    document.querySelector("#song-display").appendChild(songDiv); 
 }
+
 
 /**
  * Clears all span messages every time getSong() is called
