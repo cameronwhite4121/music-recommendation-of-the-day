@@ -58,7 +58,12 @@ function getSong() {
         userSong.songName = songName;
         userSong.album = album;
         userSong.length = length;
-        userSong.releaseDate = new Date(releaseDate);
+        const dateParts = releaseDate.split("-");
+        const year = parseInt(dateParts[0]);
+        const month = parseInt(dateParts[1]) - 1;
+        const day = parseInt(dateParts[2]);
+        const correctDate = new Date(year, month, day);
+        userSong.releaseDate = correctDate;
         return userSong;
     }
     return null;

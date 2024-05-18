@@ -112,7 +112,17 @@ function getSong():Song {
         userSong.songName = songName;
         userSong.album = album;
         userSong.length = length;
-        userSong.releaseDate = new Date(releaseDate);
+
+        // Fixes bug of date being off by 1 day due to timezone offsets.
+        // Splits date into an array with each index seperated by a "-"
+        // Array would be {"year", "month", "day"}
+        const dateParts:string[] = releaseDate.split("-");
+        const year = parseInt(dateParts[0]);
+        const month = parseInt(dateParts[1]) - 1; // subtract 1 due to months being index based
+        const day = parseInt(dateParts[2]);
+        const correctDate = new Date(year, month, day);
+
+        userSong.releaseDate = correctDate;
         return userSong;
     }
     return null; // If there is any invalid data
