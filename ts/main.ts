@@ -40,6 +40,7 @@ function processSong() {
     let userSong = getSong();
     if(userSong != null) {
         addSongToWebpage(userSong);
+        addSongToStorage(userSong);
         console.log("Song: " + userSong); // Need to create a toString method buuuuuut I don't have time to do extra stuff rn. Make an issue? nah
     }
 }
@@ -182,6 +183,12 @@ function addSongToStorage(s:Song):void {
     else {
         // Parse string into a list of songs and add new song to the list
         // store the newly modified list into storage
+        let songs:Song[] = JSON.parse(songData);
+        songs.push(s);
+
+        // Add to localStorage
+        songData = JSON.stringify(songs);
+        localStorage.setItem(SongStorageKey, songData);
     }
 }
 

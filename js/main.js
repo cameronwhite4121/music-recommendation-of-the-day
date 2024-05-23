@@ -8,7 +8,8 @@ function processSong() {
     console.log("Process Song was called");
     let userSong = getSong();
     if (userSong != null) {
-        addSong(userSong);
+        addSongToWebpage(userSong);
+        addSongToStorage(userSong);
         console.log("Song: " + userSong);
     }
 }
@@ -68,7 +69,7 @@ function getSong() {
     }
     return null;
 }
-function addSong(s) {
+function addSongToWebpage(s) {
     console.log(s);
     let songDiv = document.createElement("div");
     songDiv.setAttribute("id", "songDiv");
@@ -81,6 +82,22 @@ function addSong(s) {
     songDiv.appendChild(songHeading);
     songDiv.appendChild(songParahraph);
     document.querySelector("#song-display").appendChild(songDiv);
+}
+function addSongToStorage(s) {
+    const SongStorageKey = "Songs";
+    let songData = localStorage.getItem(SongStorageKey);
+    if (songData == null) {
+        let songs = [];
+        songs.push(s);
+        songData = JSON.stringify(songs);
+        localStorage.setItem(SongStorageKey, songData);
+    }
+    else {
+        let songs = JSON.parse(songData);
+        songs.push(s);
+        songData = JSON.stringify(songs);
+        localStorage.setItem(SongStorageKey, songData);
+    }
 }
 function clearAllErrorMsgs() {
     let allSpans = document.querySelectorAll("form span.error-msg");
