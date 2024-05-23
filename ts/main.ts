@@ -39,7 +39,7 @@ function processSong() {
 
     let userSong = getSong();
     if(userSong != null) {
-        addSong(userSong);
+        addSongToWebpage(userSong);
         console.log("Song: " + userSong); // Need to create a toString method buuuuuut I don't have time to do extra stuff rn. Make an issue? nah
     }
 }
@@ -129,13 +129,11 @@ function getSong():Song {
 }
 
 /**
- * Adds a song object to web storage. Assumes
- * all data is valid. This function DEFINITELY
- * has a purpose. 
+ * Adds a song object to webpage. Assumes
+ * all data is valid.
  * @param s The song to be added
  */
-function addSong(s:Song):void {
-    console.log("Song was added to metaphorical storage that's housed in imagination land that's definitely real and not made up, trust me bro.");
+function addSongToWebpage(s:Song):void {
     console.log(s);  
 
     // Constructs song display div structure 
@@ -163,6 +161,29 @@ function addSong(s:Song):void {
     document.querySelector("#song-display").appendChild(songDiv); 
 }
 
+/**
+ * Adds a single song object to loaclStorage
+ * Will use lists in conjunction
+ * @param s The song object to be added.
+ */
+function addSongToStorage(s:Song):void {
+    const SongStorageKey = "Songs";
+    // Read songs from storage
+    let songData = localStorage.getItem(SongStorageKey);
+
+    if (songData == null) {
+        // Create a new list and add current song
+        let songs:Song[] = [];
+        songs.push(s);
+
+        songData = JSON.stringify(songs);
+        localStorage.setItem(SongStorageKey, songData);
+    }
+    else {
+        // Parse string into a list of songs and add new song to the list
+        // store the newly modified list into storage
+    }
+}
 
 /**
  * Clears all span messages every time getSong() is called

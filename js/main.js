@@ -69,7 +69,6 @@ function getSong() {
     return null;
 }
 function addSong(s) {
-    console.log("Song was added to metaphorical storage that's housed in imagination land that's definitely real and not made up, trust me bro.");
     console.log(s);
     let songDiv = document.createElement("div");
     songDiv.setAttribute("id", "songDiv");
